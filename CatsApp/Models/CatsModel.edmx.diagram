@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="48453093386b48e9b35565c14204d1e1" Name="Diagram1">
+        <EntityTypeShape EntityType="CatsDBModel.account" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatsDBModel.ad" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatsDBModel.breed" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatsDBModel.pc_instance" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatsDBModel.personal_card" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatsDBModel.pet" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatsDBModel.role" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatsDBModel.user" Width="1.5" PointX="0.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatsDBModel.vaccination_card" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CatsDBModel.vc_pc" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="CatsDBModel.FK_account_role" ManuallyRouted="false" />
+        <AssociationConnector Association="CatsDBModel.FK_account_user" ManuallyRouted="false" />
+        <AssociationConnector Association="CatsDBModel.FK_ad_account" ManuallyRouted="false" />
+        <AssociationConnector Association="CatsDBModel.FK_pc_instance_account" ManuallyRouted="false" />
+        <AssociationConnector Association="CatsDBModel.FK_personal_card_breed" ManuallyRouted="false" />
+        <AssociationConnector Association="CatsDBModel.FK_pc_instance_personal_card" ManuallyRouted="false" />
+        <AssociationConnector Association="CatsDBModel.FK_personal_card_pet" ManuallyRouted="false" />
+        <AssociationConnector Association="CatsDBModel.FK_vc_pc_personal_card" ManuallyRouted="false" />
+        <AssociationConnector Association="CatsDBModel.FK_vc_pc_vaccination_card" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

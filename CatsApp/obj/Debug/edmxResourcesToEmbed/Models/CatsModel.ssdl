@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище CatsDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="account">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fio" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="200" />
+    <Property Name="phone" Type="nvarchar" MaxLength="11" />
+    <Property Name="roleid" Type="int" Nullable="false" />
+    <Property Name="userid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ad">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="description" Type="nvarchar" MaxLength="500" />
+    <Property Name="accountid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="breed">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="200" />
+    <Property Name="description" Type="nvarchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pc_instance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pcid" Type="int" Nullable="false" />
+    <Property Name="accid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="personal_card">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="petid" Type="int" Nullable="false" />
+    <Property Name="age" Type="int" />
+    <Property Name="breedid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pet">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="role">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="description" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="login" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vaccination_card">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="vaccinename" Type="nvarchar" MaxLength="200" />
+    <Property Name="vaccinedate" Type="date" />
+  </EntityType>
+  <EntityType Name="vc_pc">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pcid" Type="int" Nullable="false" />
+    <Property Name="vcid" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_account_role">
+    <End Role="role" Type="Self.role" Multiplicity="1" />
+    <End Role="account" Type="Self.account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="role">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="account">
+        <PropertyRef Name="roleid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_account_user">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="account" Type="Self.account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="account">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ad_account">
+    <End Role="account" Type="Self.account" Multiplicity="1" />
+    <End Role="ad" Type="Self.ad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="account">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ad">
+        <PropertyRef Name="accountid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pc_instance_account">
+    <End Role="account" Type="Self.account" Multiplicity="1" />
+    <End Role="pc_instance" Type="Self.pc_instance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="account">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="pc_instance">
+        <PropertyRef Name="accid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pc_instance_personal_card">
+    <End Role="personal_card" Type="Self.personal_card" Multiplicity="1" />
+    <End Role="pc_instance" Type="Self.pc_instance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personal_card">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="pc_instance">
+        <PropertyRef Name="pcid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_personal_card_breed">
+    <End Role="breed" Type="Self.breed" Multiplicity="1" />
+    <End Role="personal_card" Type="Self.personal_card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="breed">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="personal_card">
+        <PropertyRef Name="breedid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_personal_card_pet">
+    <End Role="pet" Type="Self.pet" Multiplicity="1" />
+    <End Role="personal_card" Type="Self.personal_card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pet">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="personal_card">
+        <PropertyRef Name="petid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_vc_pc_personal_card">
+    <End Role="personal_card" Type="Self.personal_card" Multiplicity="1" />
+    <End Role="vc_pc" Type="Self.vc_pc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personal_card">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="vc_pc">
+        <PropertyRef Name="pcid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_vc_pc_vaccination_card">
+    <End Role="vaccination_card" Type="Self.vaccination_card" Multiplicity="1" />
+    <End Role="vc_pc" Type="Self.vc_pc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vaccination_card">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="vc_pc">
+        <PropertyRef Name="vcid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище CatsDBModelContainer">
+    <EntitySet Name="account" EntityType="Self.account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ad" EntityType="Self.ad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="breed" EntityType="Self.breed" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pc_instance" EntityType="Self.pc_instance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="personal_card" EntityType="Self.personal_card" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pet" EntityType="Self.pet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vaccination_card" EntityType="Self.vaccination_card" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vc_pc" EntityType="Self.vc_pc" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_account_role" Association="Self.FK_account_role">
+      <End Role="role" EntitySet="role" />
+      <End Role="account" EntitySet="account" />
+    </AssociationSet>
+    <AssociationSet Name="FK_account_user" Association="Self.FK_account_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="account" EntitySet="account" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ad_account" Association="Self.FK_ad_account">
+      <End Role="account" EntitySet="account" />
+      <End Role="ad" EntitySet="ad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pc_instance_account" Association="Self.FK_pc_instance_account">
+      <End Role="account" EntitySet="account" />
+      <End Role="pc_instance" EntitySet="pc_instance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pc_instance_personal_card" Association="Self.FK_pc_instance_personal_card">
+      <End Role="personal_card" EntitySet="personal_card" />
+      <End Role="pc_instance" EntitySet="pc_instance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_personal_card_breed" Association="Self.FK_personal_card_breed">
+      <End Role="breed" EntitySet="breed" />
+      <End Role="personal_card" EntitySet="personal_card" />
+    </AssociationSet>
+    <AssociationSet Name="FK_personal_card_pet" Association="Self.FK_personal_card_pet">
+      <End Role="pet" EntitySet="pet" />
+      <End Role="personal_card" EntitySet="personal_card" />
+    </AssociationSet>
+    <AssociationSet Name="FK_vc_pc_personal_card" Association="Self.FK_vc_pc_personal_card">
+      <End Role="personal_card" EntitySet="personal_card" />
+      <End Role="vc_pc" EntitySet="vc_pc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_vc_pc_vaccination_card" Association="Self.FK_vc_pc_vaccination_card">
+      <End Role="vaccination_card" EntitySet="vaccination_card" />
+      <End Role="vc_pc" EntitySet="vc_pc" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

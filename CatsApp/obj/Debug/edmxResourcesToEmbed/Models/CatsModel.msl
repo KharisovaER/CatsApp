@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище CatsDBModelContainer" CdmEntityContainer="CatsDBEntities">
+    <EntitySetMapping Name="account">
+      <EntityTypeMapping TypeName="CatsDBModel.account">
+        <MappingFragment StoreEntitySet="account">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fio" ColumnName="fio" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="roleid" ColumnName="roleid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ad">
+      <EntityTypeMapping TypeName="CatsDBModel.ad">
+        <MappingFragment StoreEntitySet="ad">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="accountid" ColumnName="accountid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="breed">
+      <EntityTypeMapping TypeName="CatsDBModel.breed">
+        <MappingFragment StoreEntitySet="breed">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pc_instance">
+      <EntityTypeMapping TypeName="CatsDBModel.pc_instance">
+        <MappingFragment StoreEntitySet="pc_instance">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="pcid" ColumnName="pcid" />
+          <ScalarProperty Name="accid" ColumnName="accid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="personal_card">
+      <EntityTypeMapping TypeName="CatsDBModel.personal_card">
+        <MappingFragment StoreEntitySet="personal_card">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="petid" ColumnName="petid" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="breedid" ColumnName="breedid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pet">
+      <EntityTypeMapping TypeName="CatsDBModel.pet">
+        <MappingFragment StoreEntitySet="pet">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="role">
+      <EntityTypeMapping TypeName="CatsDBModel.role">
+        <MappingFragment StoreEntitySet="role">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="CatsDBModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vaccination_card">
+      <EntityTypeMapping TypeName="CatsDBModel.vaccination_card">
+        <MappingFragment StoreEntitySet="vaccination_card">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="vaccinename" ColumnName="vaccinename" />
+          <ScalarProperty Name="vaccinedate" ColumnName="vaccinedate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vc_pc">
+      <EntityTypeMapping TypeName="CatsDBModel.vc_pc">
+        <MappingFragment StoreEntitySet="vc_pc">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="pcid" ColumnName="pcid" />
+          <ScalarProperty Name="vcid" ColumnName="vcid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

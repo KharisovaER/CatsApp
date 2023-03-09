@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "31a35e17-c67b-4ab0-88fb-b39e606792fe": {
+      "ProjectGuid": "31a35e17-c67b-4ab0-88fb-b39e606792fe",
+      "DisplayName": "CatsApp",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
